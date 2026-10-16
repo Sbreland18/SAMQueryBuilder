@@ -1,0 +1,35 @@
+{
+  "app_name": "SAM Ad Hoc Query Builder",
+  "version": "1.0.0",
+  "released": "2026-10-15",
+  "notes": "Initial release of SAM Ad Hoc Query Builder.",
+  "installer_url": "https://github.com/Sbreland18/SAMQueryBuilder/releases/download/v1.0.0/SAM_AdHoc_Query_Builder_Setup_1.0.0.exe",
+  "installer_sha256": "",
+  "mandatory": false,
+  "data": {
+    "version": "2026.10.15.1",
+    "notes": "Initial table catalog, starter templates, 52 platform export packages with checking rules, data cleanup reports, SAM setup check, shared package library and Query Assistant vocabulary.",
+    "files": {
+      "catalog.json": {
+        "url": "https://raw.githubusercontent.com/Sbreland18/SAMQueryBuilder/main/data/catalog.json",
+        "sha256": "9a87df6a8dee1381215df0b3c79fd7e6a67795827e9190070b0ccd82e4e3c05e"
+      },
+      "templates.json": {
+        "url": "https://raw.githubusercontent.com/Sbreland18/SAMQueryBuilder/main/data/templates.json",
+        "sha256": "d25fad6bff1361be4858807717309b95892b04d0b38506796b7878293c1d3035"
+      },
+      "exports.json": {
+        "url": "https://raw.githubusercontent.com/Sbreland18/SAMQueryBuilder/main/data/exports.json",
+        "sha256": "a75d70f00c3be00885ec514b0bede7ccd383fec6593854cbb4ab172948498b2a"
+      },
+      "assistant_vocab.json": {
+        "url": "https://raw.githubusercontent.com/Sbreland18/SAMQueryBuilder/main/data/assistant_vocab.json",
+        "sha256": "4df5e5ad357cf1904c3ae6b6c33cb61f69cf0ead282fadd22555884d0d4b018c"
+      },
+      "shared_packages.json": {
+        "url": "https://raw.githubusercontent.com/Sbreland18/SAMQueryBuilder/main/data/shared_packages.json",
+        "sha256": "b35d124b20e77d20f74b507f20248d4987d9157c6370d3b5fcde8b92c2de8af0"
+      }
+    }
+  }
+}
