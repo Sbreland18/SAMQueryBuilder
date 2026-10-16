@@ -1,10 +1,10 @@
 {
   "app_name": "SAM Ad Hoc Query Builder",
-  "version": "1.0.0",
-  "released": "2026-10-15",
-  "notes": "Initial release of SAM Ad Hoc Query Builder.",
-  "installer_url": "https://github.com/Sbreland18/SAMQueryBuilder/releases/download/v1.0.0/SAM_AdHoc_Query_Builder_Setup_1.0.0.exe",
-  "installer_sha256": "",
+  "version": "1.0.3",
+  "released": "2026-10-16",
+  "notes": "Added Registration codes (entry / withdrawal) as a new list in SAM Codes & Schools, and the updated zip is attached. I checked it against a stand-in database in light and dark mode; it hasn\u2019t been run against your real SAM yet.\n\nWhat it pulls: the list comes from SAM\u2019s RegistrationCodes table. It shows each code\u2019s Code, Description, In / Out and Active, so entry codes and withdrawal codes are easy to tell apart.\nGetting it from SAM: the list has its own Copy query and Import this list buttons, and saves as registration_codes.csv.\nAll-in-one query: registration codes are also included in that query now. If you\u2019ve already imported sam_all_codes.csv, run the updated query once more to pick them up.\nFilters: once the codes are loaded, filtering on a student\u2019s registration code offers them in the Choose... list. That covers registration history and the enrollment audit.",
+  "installer_url": "https://github.com/Sbreland18/SAMQueryBuilder/releases/download/v1.0.3/SAM_AdHoc_Query_Builder_Setup_1.0.3.exe",
+  "installer_sha256": "0361656a51746eaa85b58be143c6654451a09966aa6330232e77de12b140c862",
   "mandatory": false,
   "data": {
     "version": "2026.10.15.1",
@@ -20,7 +20,7 @@
       },
       "exports.json": {
         "url": "https://raw.githubusercontent.com/Sbreland18/SAMQueryBuilder/main/data/exports.json",
-        "sha256": "a75d70f00c3be00885ec514b0bede7ccd383fec6593854cbb4ab172948498b2a"
+        "sha256": "95a214c3f4b3fe30948874716b8142fb50733e8198ebe334eb15427e150f95dc"
       },
       "assistant_vocab.json": {
         "url": "https://raw.githubusercontent.com/Sbreland18/SAMQueryBuilder/main/data/assistant_vocab.json",
