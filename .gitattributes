@@ -1,0 +1,7 @@
+# Keep data files byte-for-byte identical between the build PC and GitHub so the
+# SHA-256 hashes in latest.json always match what users download.
+*.json -text
+*.csv -text
+*.ico binary
+*.png binary
+*.bat text eol=crlf
