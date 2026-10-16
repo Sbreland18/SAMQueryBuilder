@@ -1,10 +1,10 @@
 {
   "app_name": "SAM Ad Hoc Query Builder",
-  "version": "1.0.0",
-  "released": "2026-10-15",
-  "notes": "Initial release of SAM Ad Hoc Query Builder.",
-  "installer_url": "https://github.com/Sbreland18/SAMQueryBuilder/releases/download/v1.0.0/SAM_AdHoc_Query_Builder_Setup_1.0.0.exe",
-  "installer_sha256": "",
+  "version": "1.0.4",
+  "released": "2026-10-16",
+  "notes": "Until now, two people with the same name got the same username, which was a gap. District Settings (and the setup wizard) now let you number duplicates the way you do.\n\nNew settings:\n\nDuplicate student usernames / Duplicate staff usernames:\nLeave as is\nAdd 1, 2, 3 gives j.smith, j.smith1, j.smith2\nAdd 2, 3, 4 gives j.smith, j.smith2, j.smith3\nWho already has the name:\nEveryone in SAM, including people who left (the default): numbers never change.\nOnly current staff/students: a name can shift down when someone leaves.\nStaff email comes from: you can now use the email stored for the employee in SAM instead of building it from the pattern.\n\nHow it decides who gets which number: the oldest SAM record keeps the plain name. The 2nd person with that name gets 1 (or 2), the 3rd gets the next number, and so on. A new hire never changes anyone else\u2019s username. The number goes on the email too, so the 2nd j.smith is j.smith1@hancockschools.net. Patterns that include the full ID can\u2019t repeat, so they never get a number.\n\nOne thing to check before you rely on it: the app can\u2019t see your existing Google or AD accounts. If your j.smith1 was assigned in a different order than SAM\u2019s records, the export won\u2019t match. District Settings \u2192 Copy staff check query gives you a query to run in SAM. It lists everyone who shares a name and the numbered username each one would get, so you can compare with your real accounts. If they don\u2019t match and you keep real emails in SAM, set Staff email comes from to SAM.\n\nNumbering makes staff and student export queries a little slower, because each row is compared against others with the same name.",
+  "installer_url": "https://github.com/Sbreland18/SAMQueryBuilder/releases/download/v1.0.4/SAM_AdHoc_Query_Builder_Setup_1.0.4.exe",
+  "installer_sha256": "eba792947ee7e00f3f92180e0ce676b21aab4969ca294f39d42fd2296264a8f6",
   "mandatory": false,
   "data": {
     "version": "2026.10.15.1",
@@ -20,7 +20,7 @@
       },
       "exports.json": {
         "url": "https://raw.githubusercontent.com/Sbreland18/SAMQueryBuilder/main/data/exports.json",
-        "sha256": "a75d70f00c3be00885ec514b0bede7ccd383fec6593854cbb4ab172948498b2a"
+        "sha256": "95a214c3f4b3fe30948874716b8142fb50733e8198ebe334eb15427e150f95dc"
       },
       "assistant_vocab.json": {
         "url": "https://raw.githubusercontent.com/Sbreland18/SAMQueryBuilder/main/data/assistant_vocab.json",
