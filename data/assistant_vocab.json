@@ -1,0 +1,475 @@
+{
+ "data_version": "2026.10.15.1",
+ "_readme": "Vocabulary for the built-in Query Assistant. 'fields' maps a field concept to the phrases people use for it; 'owners' maps whose field it is (student, parent, homeroom teacher...). Add phrases here and publish a data update - no new app version needed. Longer phrases win over shorter ones.",
+ "fillers": [
+  "i would like",
+  "i'd like",
+  "i want",
+  "i need",
+  "can you",
+  "could you",
+  "would you",
+  "please",
+  "give me",
+  "get me",
+  "show me",
+  "pull",
+  "run",
+  "create",
+  "make",
+  "build",
+  "generate",
+  "a query of",
+  "a query for",
+  "a query that",
+  "a query to",
+  "query of",
+  "query for",
+  "a list of",
+  "list of",
+  "a report of",
+  "a report on",
+  "report of",
+  "a roster of",
+  "an export of",
+  "export of",
+  "a spreadsheet of",
+  "a csv of",
+  "i'm looking for",
+  "looking for"
+ ],
+ "replacements": {
+  "e-mail": "email",
+  "e mail": "email",
+  "emails": "email",
+  "email addresses": "email",
+  "email address": "email",
+  "studentid": "student id",
+  "student#": "student id",
+  "student #": "student id",
+  "stu id": "student id",
+  "id#": "id",
+  "id #": "id",
+  "firstname": "first name",
+  "lastname": "last name",
+  "middlename": "middle name",
+  "fname": "first name",
+  "lname": "last name",
+  "dob": "birth date",
+  "d.o.b.": "birth date",
+  "birthdate": "birth date",
+  "birthday": "birth date",
+  "birthdays": "birth date",
+  "date of birth": "birth date",
+  "birth dates": "birth date",
+  "zipcode": "zip",
+  "zip code": "zip",
+  "postal code": "zip",
+  "phone numbers": "phone",
+  "phone number": "phone",
+  "telephone": "phone",
+  "cell phone": "phone",
+  "cell": "phone",
+  "phones": "phone",
+  "mobile": "phone",
+  "addresses": "address",
+  "home address": "address",
+  "mailing address": "address",
+  "street address": "address",
+  "parents": "parent",
+  "guardians": "guardian",
+  "parent/guardian": "parent",
+  "parents/guardians": "parent",
+  "mom": "mother",
+  "dad": "father",
+  "moms": "mother",
+  "dads": "father",
+  "teachers": "teacher",
+  "employees": "staff",
+  "employee": "staff",
+  "faculty": "teacher",
+  "kids": "students",
+  "children": "students",
+  "pupils": "students",
+  "learners": "students",
+  "student body": "students",
+  "hr teacher": "homeroom",
+  "homeroom teacher": "homeroom",
+  "homerooms": "homeroom",
+  "home room": "homeroom",
+  "ninth": "9th",
+  "tenth": "10th",
+  "eleventh": "11th",
+  "twelfth": "12th",
+  "first grade": "1st grade",
+  "second": "2nd",
+  "third": "3rd",
+  "fourth": "4th",
+  "fifth": "5th",
+  "sixth": "6th",
+  "seventh": "7th",
+  "eighth": "8th",
+  "kindergartners": "kindergarten",
+  "kindergartener": "kindergarten",
+  "kindergarteners": "kindergarten",
+  "kinder": "kindergarten",
+  "freshmen": "9th grade",
+  "freshman": "9th grade",
+  "sophomores": "10th grade",
+  "sophomore": "10th grade",
+  "juniors": "11th grade",
+  "junior": "11th grade",
+  "seniors": "12th grade",
+  "senior": "12th grade",
+  "graders": "grade",
+  "grader": "grade",
+  "grade level": "grade",
+  "grade levels": "grade",
+  "grades": "grade",
+  "gpas": "gpa",
+  "grade point average": "gpa",
+  "absences": "absent",
+  "absentees": "absent",
+  "tardies": "tardy",
+  "tardys": "tardy",
+  "late arrivals": "tardy",
+  "schedules": "schedule",
+  "classes": "class",
+  "courses": "course",
+  "sections": "section",
+  "periods": "period",
+  "rooms": "room",
+  "504 plan": "504",
+  "section 504": "504",
+  "special education": "sped",
+  "special ed": "sped",
+  "iep": "sped",
+  "ieps": "sped",
+  "&": " and ",
+  "+": " and ",
+  "last names": "last name",
+  "first names": "first name",
+  "middle names": "middle name",
+  "names": "name",
+  "student ids": "student id",
+  "ids": "id",
+  "birth date": "birth date",
+  "states": "state",
+  "cities": "city",
+  "zips": "zip",
+  "graduation years": "graduation year",
+  "lunch numbers": "lunch number",
+  "counselors": "counselor",
+  "homeroom teachers": "homeroom",
+  "emergency contacts": "emergency contact",
+  "code descriptions": "code description",
+  "descriptions": "description",
+  "principals": "principal",
+  "hire dates": "hire date",
+  "dates": "date",
+  "counts": "count",
+  "pre-kindergarten": "pre-k",
+  "prekindergarten": "pre-k",
+  "prek": "pre-k",
+  "pre k": "pre-k",
+  "case managers": "case manager"
+ },
+ "owners": {
+  "parent": [
+   "parent",
+   "guardian",
+   "mother",
+   "father",
+   "contact",
+   "family",
+   "families",
+   "emergency contact"
+  ],
+  "homeroom": [
+   "homeroom"
+  ],
+  "counselor": [
+   "counselor",
+   "guidance counselor"
+  ],
+  "teacher": [
+   "teacher",
+   "instructor"
+  ],
+  "school": [
+   "school's",
+   "school"
+  ],
+  "student": [
+   "student",
+   "student's",
+   "students'"
+  ]
+ },
+ "fields": {
+  "student_id": [
+   "student id",
+   "student number",
+   "local id",
+   "sis id",
+   "id number",
+   "student code",
+   "id"
+  ],
+  "state_id": [
+   "state id",
+   "msis id",
+   "msis number",
+   "msis",
+   "state number",
+   "state student id",
+   "state code"
+  ],
+  "first_name": [
+   "first name",
+   "given name",
+   "first"
+  ],
+  "last_name": [
+   "last name",
+   "surname",
+   "family name",
+   "last"
+  ],
+  "middle_name": [
+   "middle name",
+   "middle initial",
+   "middle"
+  ],
+  "preferred_name": [
+   "preferred name",
+   "nickname",
+   "nick name"
+  ],
+  "full_name": [
+   "full name",
+   "name",
+   "names",
+   "student name"
+  ],
+  "email": [
+   "email",
+   "school email",
+   "student email"
+  ],
+  "phone": [
+   "phone",
+   "contact number",
+   "numbers",
+   "number"
+  ],
+  "address": [
+   "address",
+   "where they live",
+   "residence"
+  ],
+  "city": [
+   "city",
+   "town"
+  ],
+  "zip": [
+   "zip"
+  ],
+  "birth_date": [
+   "birth date",
+   "born"
+  ],
+  "age": [
+   "age",
+   "ages",
+   "how old"
+  ],
+  "gender": [
+   "gender",
+   "sex"
+  ],
+  "race": [
+   "race",
+   "ethnicity",
+   "ethnic"
+  ],
+  "grade": [
+   "grade"
+  ],
+  "school": [
+   "school name",
+   "school",
+   "campus",
+   "building"
+  ],
+  "school_code": [
+   "school code",
+   "school number",
+   "school id"
+  ],
+  "homeroom": [
+   "homeroom"
+  ],
+  "homeroom_room": [
+   "homeroom room",
+   "homeroom number",
+   "homeroom room number"
+  ],
+  "counselor": [
+   "counselor"
+  ],
+  "gpa": [
+   "gpa",
+   "cumulative gpa"
+  ],
+  "qpa": [
+   "qpa"
+  ],
+  "lunch_pin": [
+   "lunch number",
+   "lunch pin",
+   "lunch id",
+   "pin",
+   "pin number",
+   "cafeteria number"
+  ],
+  "meal_status": [
+   "meal status",
+   "lunch status",
+   "meal eligibility",
+   "free and reduced",
+   "free/reduced",
+   "food service code",
+   "eligibility"
+  ],
+  "enrollment_status": [
+   "enrollment status",
+   "enrollment",
+   "status"
+  ],
+  "relationship": [
+   "relationship",
+   "relation"
+  ],
+  "language": [
+   "language",
+   "home language",
+   "primary language"
+  ],
+  "transportation": [
+   "transportation",
+   "bus info",
+   "bus information",
+   "route",
+   "routes",
+   "bus route",
+   "route information"
+  ],
+  "bus_zone": [
+   "bus zone",
+   "zone"
+  ],
+  "flag_504": [
+   "504"
+  ],
+  "sped": [
+   "sped",
+   "sped status"
+  ],
+  "gifted": [
+   "gifted",
+   "gifted status"
+  ],
+  "title_one": [
+   "title one",
+   "title i",
+   "title 1"
+  ],
+  "foster": [
+   "foster",
+   "foster care"
+  ],
+  "grad_year": [
+   "graduation year",
+   "grad year",
+   "class of",
+   "cohort",
+   "year of graduation"
+  ],
+  "ninth_year": [
+   "year entering ninth",
+   "ninth grade entry year"
+  ],
+  "hire_date": [
+   "hire date",
+   "date hired",
+   "hired"
+  ],
+  "employee_number": [
+   "employee number",
+   "employee id",
+   "staff id",
+   "employee #"
+  ],
+  "course": [
+   "course name",
+   "course",
+   "class",
+   "subject"
+  ],
+  "course_code": [
+   "course code",
+   "course number"
+  ],
+  "period": [
+   "period"
+  ],
+  "section": [
+   "section number",
+   "section"
+  ],
+  "room": [
+   "room number",
+   "room",
+   "classroom"
+  ],
+  "teacher": [
+   "teacher"
+  ],
+  "schedule": [
+   "schedule"
+  ],
+  "attendance_date": [
+   "attendance date",
+   "date absent",
+   "date"
+  ],
+  "attendance_code": [
+   "attendance code",
+   "absence code",
+   "code"
+  ],
+  "attendance_desc": [
+   "attendance code description",
+   "code description",
+   "attendance description",
+   "description",
+   "reason",
+   "attendance type"
+  ],
+  "transcript": [
+   "transcript",
+   "credits",
+   "credit"
+  ],
+  "username": [
+   "username",
+   "user name",
+   "login"
+  ],
+  "emergency": [
+   "emergency contact",
+   "emergency"
+  ]
+ }
+}

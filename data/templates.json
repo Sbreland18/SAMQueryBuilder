@@ -1,0 +1,1547 @@
+{
+ "data_version": "2026.10.15.1",
+ "templates": [
+  {
+   "name": "Homeroom Roster",
+   "description": "Students with their homeroom teacher, grade, state code and a generated email address (matches the Report Builder 'Homeroom Roster' example). Change the email domain in Step 3.",
+   "tables": [
+    {
+     "alias": "Student",
+     "table": "Student"
+    },
+    {
+     "alias": "stuHRTeacher",
+     "table": "stuHRTeacher"
+    },
+    {
+     "alias": "Employee",
+     "table": "Employee"
+    }
+   ],
+   "links": [
+    {
+     "left_alias": "Student",
+     "left_col": "StudentID",
+     "right_alias": "stuHRTeacher",
+     "right_col": "StudentID",
+     "join": "INNER"
+    },
+    {
+     "left_alias": "stuHRTeacher",
+     "left_col": "HRTeacherID",
+     "right_alias": "Employee",
+     "right_col": "EmployeeID",
+     "join": "INNER"
+    }
+   ],
+   "columns": [
+    {
+     "kind": "custom",
+     "alias": "",
+     "column": "",
+     "heading": "Homeroom Teacher",
+     "formats": [],
+     "parts": [
+      {
+       "kind": "field",
+       "alias": "Employee",
+       "column": "LastName",
+       "value": "",
+       "formats": []
+      },
+      {
+       "kind": "text",
+       "alias": "",
+       "column": "",
+       "value": ", ",
+       "formats": []
+      },
+      {
+       "kind": "field",
+       "alias": "Employee",
+       "column": "FirstName",
+       "value": "",
+       "formats": []
+      }
+     ]
+    },
+    {
+     "kind": "field",
+     "alias": "Student",
+     "column": "ADAGrade",
+     "heading": "Grade",
+     "formats": [],
+     "parts": []
+    },
+    {
+     "kind": "custom",
+     "alias": "",
+     "column": "",
+     "heading": "Student",
+     "formats": [],
+     "parts": [
+      {
+       "kind": "field",
+       "alias": "Student",
+       "column": "LastName",
+       "value": "",
+       "formats": []
+      },
+      {
+       "kind": "text",
+       "alias": "",
+       "column": "",
+       "value": ", ",
+       "formats": []
+      },
+      {
+       "kind": "field",
+       "alias": "Student",
+       "column": "FirstName",
+       "value": "",
+       "formats": []
+      }
+     ]
+    },
+    {
+     "kind": "field",
+     "alias": "Student",
+     "column": "StateCode",
+     "heading": "State Code",
+     "formats": [
+      {
+       "type": "strip_zeros",
+       "a": "",
+       "b": ""
+      }
+     ],
+     "parts": []
+    },
+    {
+     "kind": "custom",
+     "alias": "",
+     "column": "",
+     "heading": "New Email",
+     "formats": [],
+     "parts": [
+      {
+       "kind": "field",
+       "alias": "Student",
+       "column": "FirstName",
+       "value": "",
+       "formats": [
+        {
+         "type": "left",
+         "a": "1",
+         "b": ""
+        },
+        {
+         "type": "lower",
+         "a": "",
+         "b": ""
+        }
+       ]
+      },
+      {
+       "kind": "field",
+       "alias": "Student",
+       "column": "LastName",
+       "value": "",
+       "formats": [
+        {
+         "type": "lower",
+         "a": "",
+         "b": ""
+        },
+        {
+         "type": "remove_spaces",
+         "a": "",
+         "b": ""
+        }
+       ]
+      },
+      {
+       "kind": "text",
+       "alias": "",
+       "column": "",
+       "value": "@yourdistrict.k12.ms.us",
+       "formats": []
+      }
+     ]
+    }
+   ],
+   "filters": [],
+   "filter_mode": "ALL",
+   "sort": [
+    {
+     "heading": "Homeroom Teacher",
+     "desc": false
+    },
+    {
+     "heading": "Grade",
+     "desc": false
+    },
+    {
+     "heading": "Student",
+     "desc": false
+    }
+   ],
+   "distinct": false,
+   "top": 0,
+   "sql_override": "",
+   "created": "",
+   "modified": "",
+   "category": "Students",
+   "format": "sam-adhoc-query",
+   "format_version": 1
+  },
+  {
+   "name": "Student Schedule",
+   "description": "Each student's classes from the live schedule: period, course, section, teacher and room (matches the Report Builder 'Student Schedule' example: Student -> Schedule Roster -> Course/Section).",
+   "tables": [
+    {
+     "alias": "Student",
+     "table": "Student"
+    },
+    {
+     "alias": "ScheduleRoster",
+     "table": "ScheduleRoster"
+    },
+    {
+     "alias": "ScheduleFramework",
+     "table": "ScheduleFramework"
+    },
+    {
+     "alias": "ScheduleCourseTerm",
+     "table": "ScheduleCourseTerm"
+    },
+    {
+     "alias": "ScheduleCourse",
+     "table": "ScheduleCourse"
+    },
+    {
+     "alias": "Course",
+     "table": "Course"
+    },
+    {
+     "alias": "Schedule",
+     "table": "Schedule"
+    },
+    {
+     "alias": "Employee",
+     "table": "Employee"
+    }
+   ],
+   "links": [
+    {
+     "left_alias": "Student",
+     "left_col": "StudentID",
+     "right_alias": "ScheduleRoster",
+     "right_col": "StudentID",
+     "join": "INNER"
+    },
+    {
+     "left_alias": "ScheduleRoster",
+     "left_col": "ScheduleFrameworkID",
+     "right_alias": "ScheduleFramework",
+     "right_col": "ScheduleFrameworkID",
+     "join": "INNER"
+    },
+    {
+     "left_alias": "ScheduleFramework",
+     "left_col": "ScheduleCourseTermID",
+     "right_alias": "ScheduleCourseTerm",
+     "right_col": "ScheduleCourseTermID",
+     "join": "INNER"
+    },
+    {
+     "left_alias": "ScheduleCourseTerm",
+     "left_col": "ScheduleCourseID",
+     "right_alias": "ScheduleCourse",
+     "right_col": "ScheduleCourseID",
+     "join": "INNER"
+    },
+    {
+     "left_alias": "ScheduleCourse",
+     "left_col": "CourseID",
+     "right_alias": "Course",
+     "right_col": "CourseID",
+     "join": "INNER"
+    },
+    {
+     "left_alias": "ScheduleCourse",
+     "left_col": "ScheduleID",
+     "right_alias": "Schedule",
+     "right_col": "ScheduleID",
+     "join": "INNER"
+    },
+    {
+     "left_alias": "ScheduleFramework",
+     "left_col": "TeacherID",
+     "right_alias": "Employee",
+     "right_col": "EmployeeID",
+     "join": "LEFT"
+    }
+   ],
+   "columns": [
+    {
+     "kind": "field",
+     "alias": "Student",
+     "column": "ADAGrade",
+     "heading": "Grade",
+     "formats": [],
+     "parts": []
+    },
+    {
+     "kind": "custom",
+     "alias": "",
+     "column": "",
+     "heading": "Student",
+     "formats": [],
+     "parts": [
+      {
+       "kind": "field",
+       "alias": "Student",
+       "column": "LastName",
+       "value": "",
+       "formats": []
+      },
+      {
+       "kind": "text",
+       "alias": "",
+       "column": "",
+       "value": ", ",
+       "formats": []
+      },
+      {
+       "kind": "field",
+       "alias": "Student",
+       "column": "FirstName",
+       "value": "",
+       "formats": []
+      }
+     ]
+    },
+    {
+     "kind": "field",
+     "alias": "ScheduleFramework",
+     "column": "Period",
+     "heading": "Period",
+     "formats": [],
+     "parts": []
+    },
+    {
+     "kind": "field",
+     "alias": "Course",
+     "column": "CourseCode",
+     "heading": "Course Code",
+     "formats": [],
+     "parts": []
+    },
+    {
+     "kind": "field",
+     "alias": "Course",
+     "column": "LongName",
+     "heading": "Course Name",
+     "formats": [],
+     "parts": []
+    },
+    {
+     "kind": "field",
+     "alias": "ScheduleFramework",
+     "column": "SectionNumber",
+     "heading": "Section",
+     "formats": [],
+     "parts": []
+    },
+    {
+     "kind": "custom",
+     "alias": "",
+     "column": "",
+     "heading": "Teacher",
+     "formats": [],
+     "parts": [
+      {
+       "kind": "field",
+       "alias": "Employee",
+       "column": "LastName",
+       "value": "",
+       "formats": []
+      },
+      {
+       "kind": "text",
+       "alias": "",
+       "column": "",
+       "value": ", ",
+       "formats": []
+      },
+      {
+       "kind": "field",
+       "alias": "Employee",
+       "column": "FirstName",
+       "value": "",
+       "formats": []
+      }
+     ]
+    },
+    {
+     "kind": "field",
+     "alias": "ScheduleFramework",
+     "column": "Room",
+     "heading": "Room",
+     "formats": [],
+     "parts": []
+    }
+   ],
+   "filters": [
+    {
+     "match": "ALL",
+     "conditions": [
+      {
+       "alias": "Schedule",
+       "column": "LiveFlag",
+       "op": "eq",
+       "value": "1",
+       "value2": ""
+      }
+     ]
+    }
+   ],
+   "filter_mode": "ALL",
+   "sort": [
+    {
+     "heading": "Grade",
+     "desc": false
+    },
+    {
+     "heading": "Student",
+     "desc": false
+    },
+    {
+     "heading": "Period",
+     "desc": false
+    }
+   ],
+   "distinct": false,
+   "top": 0,
+   "sql_override": "",
+   "created": "",
+   "modified": "",
+   "category": "Scheduling",
+   "format": "sam-adhoc-query",
+   "format_version": 1
+  },
+  {
+   "name": "Teacher Class List",
+   "description": "Every section in the live schedule with its teacher, school, period, course and room.",
+   "tables": [
+    {
+     "alias": "ScheduleFramework",
+     "table": "ScheduleFramework"
+    },
+    {
+     "alias": "ScheduleCourseTerm",
+     "table": "ScheduleCourseTerm"
+    },
+    {
+     "alias": "ScheduleCourse",
+     "table": "ScheduleCourse"
+    },
+    {
+     "alias": "Course",
+     "table": "Course"
+    },
+    {
+     "alias": "Schedule",
+     "table": "Schedule"
+    },
+    {
+     "alias": "SchoolDef",
+     "table": "SchoolDef"
+    },
+    {
+     "alias": "Employee",
+     "table": "Employee"
+    }
+   ],
+   "links": [
+    {
+     "left_alias": "ScheduleFramework",
+     "left_col": "ScheduleCourseTermID",
+     "right_alias": "ScheduleCourseTerm",
+     "right_col": "ScheduleCourseTermID",
+     "join": "INNER"
+    },
+    {
+     "left_alias": "ScheduleCourseTerm",
+     "left_col": "ScheduleCourseID",
+     "right_alias": "ScheduleCourse",
+     "right_col": "ScheduleCourseID",
+     "join": "INNER"
+    },
+    {
+     "left_alias": "ScheduleCourse",
+     "left_col": "CourseID",
+     "right_alias": "Course",
+     "right_col": "CourseID",
+     "join": "INNER"
+    },
+    {
+     "left_alias": "ScheduleCourse",
+     "left_col": "ScheduleID",
+     "right_alias": "Schedule",
+     "right_col": "ScheduleID",
+     "join": "INNER"
+    },
+    {
+     "left_alias": "Schedule",
+     "left_col": "SchoolID",
+     "right_alias": "SchoolDef",
+     "right_col": "SchoolID",
+     "join": "INNER"
+    },
+    {
+     "left_alias": "ScheduleFramework",
+     "left_col": "TeacherID",
+     "right_alias": "Employee",
+     "right_col": "EmployeeID",
+     "join": "LEFT"
+    }
+   ],
+   "columns": [
+    {
+     "kind": "field",
+     "alias": "SchoolDef",
+     "column": "SchoolName",
+     "heading": "School",
+     "formats": [],
+     "parts": []
+    },
+    {
+     "kind": "custom",
+     "alias": "",
+     "column": "",
+     "heading": "Teacher",
+     "formats": [],
+     "parts": [
+      {
+       "kind": "field",
+       "alias": "Employee",
+       "column": "LastName",
+       "value": "",
+       "formats": []
+      },
+      {
+       "kind": "text",
+       "alias": "",
+       "column": "",
+       "value": ", ",
+       "formats": []
+      },
+      {
+       "kind": "field",
+       "alias": "Employee",
+       "column": "FirstName",
+       "value": "",
+       "formats": []
+      }
+     ]
+    },
+    {
+     "kind": "field",
+     "alias": "ScheduleFramework",
+     "column": "Period",
+     "heading": "Period",
+     "formats": [],
+     "parts": []
+    },
+    {
+     "kind": "field",
+     "alias": "Course",
+     "column": "CourseCode",
+     "heading": "Course Code",
+     "formats": [],
+     "parts": []
+    },
+    {
+     "kind": "field",
+     "alias": "Course",
+     "column": "LongName",
+     "heading": "Course Name",
+     "formats": [],
+     "parts": []
+    },
+    {
+     "kind": "field",
+     "alias": "ScheduleFramework",
+     "column": "SectionNumber",
+     "heading": "Section",
+     "formats": [],
+     "parts": []
+    },
+    {
+     "kind": "field",
+     "alias": "ScheduleFramework",
+     "column": "Room",
+     "heading": "Room",
+     "formats": [],
+     "parts": []
+    }
+   ],
+   "filters": [
+    {
+     "match": "ALL",
+     "conditions": [
+      {
+       "alias": "Schedule",
+       "column": "LiveFlag",
+       "op": "eq",
+       "value": "1",
+       "value2": ""
+      }
+     ]
+    }
+   ],
+   "filter_mode": "ALL",
+   "sort": [
+    {
+     "heading": "School",
+     "desc": false
+    },
+    {
+     "heading": "Teacher",
+     "desc": false
+    },
+    {
+     "heading": "Period",
+     "desc": false
+    }
+   ],
+   "distinct": false,
+   "top": 0,
+   "sql_override": "",
+   "created": "",
+   "modified": "",
+   "category": "Scheduling",
+   "format": "sam-adhoc-query",
+   "format_version": 1
+  },
+  {
+   "name": "Students by School",
+   "description": "Basic student list with school, IDs, grade, birth date and gender. Add a filter on School or Enrollment Status in Step 4.",
+   "tables": [
+    {
+     "alias": "Student",
+     "table": "Student"
+    },
+    {
+     "alias": "stuSchool",
+     "table": "stuSchool"
+    },
+    {
+     "alias": "SchoolDef",
+     "table": "SchoolDef"
+    }
+   ],
+   "links": [
+    {
+     "left_alias": "Student",
+     "left_col": "StudentID",
+     "right_alias": "stuSchool",
+     "right_col": "StudentID",
+     "join": "INNER"
+    },
+    {
+     "left_alias": "stuSchool",
+     "left_col": "SchoolID",
+     "right_alias": "SchoolDef",
+     "right_col": "SchoolID",
+     "join": "INNER"
+    }
+   ],
+   "columns": [
+    {
+     "kind": "field",
+     "alias": "SchoolDef",
+     "column": "SchoolName",
+     "heading": "School",
+     "formats": [],
+     "parts": []
+    },
+    {
+     "kind": "field",
+     "alias": "Student",
+     "column": "StudentCode",
+     "heading": "Student ID",
+     "formats": [],
+     "parts": []
+    },
+    {
+     "kind": "field",
+     "alias": "Student",
+     "column": "StateCode",
+     "heading": "State Code",
+     "formats": [
+      {
+       "type": "strip_zeros",
+       "a": "",
+       "b": ""
+      }
+     ],
+     "parts": []
+    },
+    {
+     "kind": "field",
+     "alias": "Student",
+     "column": "LastName",
+     "heading": "Last Name",
+     "formats": [],
+     "parts": []
+    },
+    {
+     "kind": "field",
+     "alias": "Student",
+     "column": "FirstName",
+     "heading": "First Name",
+     "formats": [],
+     "parts": []
+    },
+    {
+     "kind": "field",
+     "alias": "Student",
+     "column": "ADAGrade",
+     "heading": "Grade",
+     "formats": [],
+     "parts": []
+    },
+    {
+     "kind": "field",
+     "alias": "Student",
+     "column": "DOB",
+     "heading": "Birth Date",
+     "formats": [
+      {
+       "type": "date_us",
+       "a": "",
+       "b": ""
+      }
+     ],
+     "parts": []
+    },
+    {
+     "kind": "field",
+     "alias": "Student",
+     "column": "GenderCode",
+     "heading": "Gender",
+     "formats": [],
+     "parts": []
+    },
+    {
+     "kind": "field",
+     "alias": "Student",
+     "column": "EnrollmentStatus",
+     "heading": "Enrollment Status",
+     "formats": [],
+     "parts": []
+    }
+   ],
+   "filters": [],
+   "filter_mode": "ALL",
+   "sort": [
+    {
+     "heading": "School",
+     "desc": false
+    },
+    {
+     "heading": "Grade",
+     "desc": false
+    },
+    {
+     "heading": "Last Name",
+     "desc": false
+    },
+    {
+     "heading": "First Name",
+     "desc": false
+    }
+   ],
+   "distinct": false,
+   "top": 0,
+   "sql_override": "",
+   "created": "",
+   "modified": "",
+   "category": "Students",
+   "format": "sam-adhoc-query",
+   "format_version": 1
+  },
+  {
+   "name": "Student Contacts (Parents/Guardians)",
+   "description": "Each student's contacts in sequence order with relationship and primary/emergency flags.",
+   "tables": [
+    {
+     "alias": "Student",
+     "table": "Student"
+    },
+    {
+     "alias": "StudentContact",
+     "table": "StudentContact"
+    },
+    {
+     "alias": "ContactInfo",
+     "table": "ContactInfo"
+    }
+   ],
+   "links": [
+    {
+     "left_alias": "Student",
+     "left_col": "StudentID",
+     "right_alias": "StudentContact",
+     "right_col": "StudentID",
+     "join": "INNER"
+    },
+    {
+     "left_alias": "StudentContact",
+     "left_col": "ContactID",
+     "right_alias": "ContactInfo",
+     "right_col": "ContactID",
+     "join": "INNER"
+    }
+   ],
+   "columns": [
+    {
+     "kind": "field",
+     "alias": "Student",
+     "column": "StudentCode",
+     "heading": "Student ID",
+     "formats": [],
+     "parts": []
+    },
+    {
+     "kind": "custom",
+     "alias": "",
+     "column": "",
+     "heading": "Student",
+     "formats": [],
+     "parts": [
+      {
+       "kind": "field",
+       "alias": "Student",
+       "column": "LastName",
+       "value": "",
+       "formats": []
+      },
+      {
+       "kind": "text",
+       "alias": "",
+       "column": "",
+       "value": ", ",
+       "formats": []
+      },
+      {
+       "kind": "field",
+       "alias": "Student",
+       "column": "FirstName",
+       "value": "",
+       "formats": []
+      }
+     ]
+    },
+    {
+     "kind": "field",
+     "alias": "StudentContact",
+     "column": "Sequence",
+     "heading": "Seq",
+     "formats": [],
+     "parts": []
+    },
+    {
+     "kind": "custom",
+     "alias": "",
+     "column": "",
+     "heading": "Contact",
+     "formats": [],
+     "parts": [
+      {
+       "kind": "field",
+       "alias": "ContactInfo",
+       "column": "LastName",
+       "value": "",
+       "formats": []
+      },
+      {
+       "kind": "text",
+       "alias": "",
+       "column": "",
+       "value": ", ",
+       "formats": []
+      },
+      {
+       "kind": "field",
+       "alias": "ContactInfo",
+       "column": "FirstName",
+       "value": "",
+       "formats": []
+      }
+     ]
+    },
+    {
+     "kind": "field",
+     "alias": "StudentContact",
+     "column": "RelationshipCode",
+     "heading": "Relationship",
+     "formats": [],
+     "parts": []
+    },
+    {
+     "kind": "field",
+     "alias": "StudentContact",
+     "column": "PrimaryContact",
+     "heading": "Primary",
+     "formats": [
+      {
+       "type": "yes_no",
+       "a": "",
+       "b": ""
+      }
+     ],
+     "parts": []
+    },
+    {
+     "kind": "field",
+     "alias": "StudentContact",
+     "column": "EmergencyFlag",
+     "heading": "Emergency",
+     "formats": [
+      {
+       "type": "yes_no",
+       "a": "",
+       "b": ""
+      }
+     ],
+     "parts": []
+    },
+    {
+     "kind": "field",
+     "alias": "StudentContact",
+     "column": "ResidesWith",
+     "heading": "Resides With",
+     "formats": [
+      {
+       "type": "yes_no",
+       "a": "",
+       "b": ""
+      }
+     ],
+     "parts": []
+    }
+   ],
+   "filters": [],
+   "filter_mode": "ALL",
+   "sort": [
+    {
+     "heading": "Student",
+     "desc": false
+    },
+    {
+     "heading": "Seq",
+     "desc": false
+    }
+   ],
+   "distinct": false,
+   "top": 0,
+   "sql_override": "",
+   "created": "",
+   "modified": "",
+   "category": "Students",
+   "format": "sam-adhoc-query",
+   "format_version": 1
+  },
+  {
+   "name": "Student Addresses",
+   "description": "Student mailing addresses. IMPORTANT: AddressRelationship holds addresses for students, contacts and employees; add a Step 4 filter on AddressRelationship.OwnerType for the student owner type used in your district.",
+   "tables": [
+    {
+     "alias": "Student",
+     "table": "Student"
+    },
+    {
+     "alias": "AddressRelationship",
+     "table": "AddressRelationship"
+    },
+    {
+     "alias": "Address",
+     "table": "Address"
+    }
+   ],
+   "links": [
+    {
+     "left_alias": "Student",
+     "left_col": "StudentID",
+     "right_alias": "AddressRelationship",
+     "right_col": "OwnerID",
+     "join": "INNER"
+    },
+    {
+     "left_alias": "AddressRelationship",
+     "left_col": "AddressID",
+     "right_alias": "Address",
+     "right_col": "AddressID",
+     "join": "INNER"
+    }
+   ],
+   "columns": [
+    {
+     "kind": "field",
+     "alias": "Student",
+     "column": "StudentCode",
+     "heading": "Student ID",
+     "formats": [],
+     "parts": []
+    },
+    {
+     "kind": "custom",
+     "alias": "",
+     "column": "",
+     "heading": "Student",
+     "formats": [],
+     "parts": [
+      {
+       "kind": "field",
+       "alias": "Student",
+       "column": "LastName",
+       "value": "",
+       "formats": []
+      },
+      {
+       "kind": "text",
+       "alias": "",
+       "column": "",
+       "value": ", ",
+       "formats": []
+      },
+      {
+       "kind": "field",
+       "alias": "Student",
+       "column": "FirstName",
+       "value": "",
+       "formats": []
+      }
+     ]
+    },
+    {
+     "kind": "field",
+     "alias": "AddressRelationship",
+     "column": "OwnerType",
+     "heading": "Owner Type",
+     "formats": [],
+     "parts": []
+    },
+    {
+     "kind": "field",
+     "alias": "AddressRelationship",
+     "column": "PrimaryAddress",
+     "heading": "Primary",
+     "formats": [
+      {
+       "type": "yes_no",
+       "a": "",
+       "b": ""
+      }
+     ],
+     "parts": []
+    },
+    {
+     "kind": "field",
+     "alias": "Address",
+     "column": "AddrLine1",
+     "heading": "Address 1",
+     "formats": [],
+     "parts": []
+    },
+    {
+     "kind": "field",
+     "alias": "Address",
+     "column": "AddrLine2",
+     "heading": "Address 2",
+     "formats": [],
+     "parts": []
+    },
+    {
+     "kind": "field",
+     "alias": "Address",
+     "column": "City",
+     "heading": "City",
+     "formats": [],
+     "parts": []
+    },
+    {
+     "kind": "field",
+     "alias": "Address",
+     "column": "State",
+     "heading": "State",
+     "formats": [],
+     "parts": []
+    },
+    {
+     "kind": "field",
+     "alias": "Address",
+     "column": "ZipCode",
+     "heading": "ZIP",
+     "formats": [],
+     "parts": []
+    }
+   ],
+   "filters": [],
+   "filter_mode": "ALL",
+   "sort": [
+    {
+     "heading": "Student",
+     "desc": false
+    }
+   ],
+   "distinct": false,
+   "top": 0,
+   "sql_override": "",
+   "created": "",
+   "modified": "",
+   "category": "Students",
+   "format": "sam-adhoc-query",
+   "format_version": 1
+  },
+  {
+   "name": "Daily Attendance - Last 30 Days",
+   "description": "Daily attendance records from the last 30 days with code descriptions.",
+   "tables": [
+    {
+     "alias": "AttendanceDaily",
+     "table": "AttendanceDaily"
+    },
+    {
+     "alias": "Student",
+     "table": "Student"
+    },
+    {
+     "alias": "AttendanceCodes",
+     "table": "AttendanceCodes"
+    }
+   ],
+   "links": [
+    {
+     "left_alias": "AttendanceDaily",
+     "left_col": "StudentID",
+     "right_alias": "Student",
+     "right_col": "StudentID",
+     "join": "INNER"
+    },
+    {
+     "left_alias": "AttendanceDaily",
+     "left_col": "AttendanceCode",
+     "right_alias": "AttendanceCodes",
+     "right_col": "AttendanceCode",
+     "join": "LEFT"
+    }
+   ],
+   "columns": [
+    {
+     "kind": "field",
+     "alias": "AttendanceDaily",
+     "column": "AttendanceDate",
+     "heading": "Date",
+     "formats": [
+      {
+       "type": "date_us",
+       "a": "",
+       "b": ""
+      }
+     ],
+     "parts": []
+    },
+    {
+     "kind": "field",
+     "alias": "Student",
+     "column": "StudentCode",
+     "heading": "Student ID",
+     "formats": [],
+     "parts": []
+    },
+    {
+     "kind": "custom",
+     "alias": "",
+     "column": "",
+     "heading": "Student",
+     "formats": [],
+     "parts": [
+      {
+       "kind": "field",
+       "alias": "Student",
+       "column": "LastName",
+       "value": "",
+       "formats": []
+      },
+      {
+       "kind": "text",
+       "alias": "",
+       "column": "",
+       "value": ", ",
+       "formats": []
+      },
+      {
+       "kind": "field",
+       "alias": "Student",
+       "column": "FirstName",
+       "value": "",
+       "formats": []
+      }
+     ]
+    },
+    {
+     "kind": "field",
+     "alias": "AttendanceDaily",
+     "column": "AttendanceCode",
+     "heading": "Code",
+     "formats": [],
+     "parts": []
+    },
+    {
+     "kind": "field",
+     "alias": "AttendanceCodes",
+     "column": "AttendanceDescription",
+     "heading": "Description",
+     "formats": [],
+     "parts": []
+    }
+   ],
+   "filters": [
+    {
+     "match": "ALL",
+     "conditions": [
+      {
+       "alias": "AttendanceDaily",
+       "column": "AttendanceDate",
+       "op": "last_days",
+       "value": "30",
+       "value2": ""
+      }
+     ]
+    }
+   ],
+   "filter_mode": "ALL",
+   "sort": [
+    {
+     "heading": "Date",
+     "desc": true
+    },
+    {
+     "heading": "Student",
+     "desc": false
+    }
+   ],
+   "distinct": false,
+   "top": 0,
+   "sql_override": "",
+   "created": "",
+   "modified": "",
+   "category": "Attendance",
+   "format": "sam-adhoc-query",
+   "format_version": 1
+  },
+  {
+   "name": "Staff by School",
+   "description": "Employees assigned to each school with employee number and hire date.",
+   "tables": [
+    {
+     "alias": "Employee",
+     "table": "Employee"
+    },
+    {
+     "alias": "empSchool",
+     "table": "empSchool"
+    },
+    {
+     "alias": "SchoolDef",
+     "table": "SchoolDef"
+    }
+   ],
+   "links": [
+    {
+     "left_alias": "Employee",
+     "left_col": "EmployeeID",
+     "right_alias": "empSchool",
+     "right_col": "EmployeeID",
+     "join": "INNER"
+    },
+    {
+     "left_alias": "empSchool",
+     "left_col": "SchoolID",
+     "right_alias": "SchoolDef",
+     "right_col": "SchoolID",
+     "join": "INNER"
+    }
+   ],
+   "columns": [
+    {
+     "kind": "field",
+     "alias": "SchoolDef",
+     "column": "SchoolName",
+     "heading": "School",
+     "formats": [],
+     "parts": []
+    },
+    {
+     "kind": "field",
+     "alias": "Employee",
+     "column": "EmployeeNumber",
+     "heading": "Employee #",
+     "formats": [],
+     "parts": []
+    },
+    {
+     "kind": "field",
+     "alias": "Employee",
+     "column": "LastName",
+     "heading": "Last Name",
+     "formats": [],
+     "parts": []
+    },
+    {
+     "kind": "field",
+     "alias": "Employee",
+     "column": "FirstName",
+     "heading": "First Name",
+     "formats": [],
+     "parts": []
+    },
+    {
+     "kind": "field",
+     "alias": "Employee",
+     "column": "FacultyFlag",
+     "heading": "Faculty",
+     "formats": [
+      {
+       "type": "yes_no",
+       "a": "",
+       "b": ""
+      }
+     ],
+     "parts": []
+    },
+    {
+     "kind": "field",
+     "alias": "Employee",
+     "column": "HireDate",
+     "heading": "Hire Date",
+     "formats": [
+      {
+       "type": "date_us",
+       "a": "",
+       "b": ""
+      }
+     ],
+     "parts": []
+    }
+   ],
+   "filters": [],
+   "filter_mode": "ALL",
+   "sort": [
+    {
+     "heading": "School",
+     "desc": false
+    },
+    {
+     "heading": "Last Name",
+     "desc": false
+    },
+    {
+     "heading": "First Name",
+     "desc": false
+    }
+   ],
+   "distinct": false,
+   "top": 0,
+   "sql_override": "",
+   "created": "",
+   "modified": "",
+   "category": "Employees",
+   "format": "sam-adhoc-query",
+   "format_version": 1
+  },
+  {
+   "name": "Transcript Courses and Grades",
+   "description": "Historical transcript: session, course, final grade and credits for each student.",
+   "tables": [
+    {
+     "alias": "Student",
+     "table": "Student"
+    },
+    {
+     "alias": "historyStudentSessions",
+     "table": "historyStudentSessions"
+    },
+    {
+     "alias": "historyStudentCourses",
+     "table": "historyStudentCourses"
+    },
+    {
+     "alias": "historyStudentCourseGrades",
+     "table": "historyStudentCourseGrades"
+    }
+   ],
+   "links": [
+    {
+     "left_alias": "Student",
+     "left_col": "StudentID",
+     "right_alias": "historyStudentSessions",
+     "right_col": "StudentID",
+     "join": "INNER"
+    },
+    {
+     "left_alias": "historyStudentSessions",
+     "left_col": "HistSessionID",
+     "right_alias": "historyStudentCourses",
+     "right_col": "HistSessionID",
+     "join": "INNER"
+    },
+    {
+     "left_alias": "historyStudentCourses",
+     "left_col": "HistStuCourseID",
+     "right_alias": "historyStudentCourseGrades",
+     "right_col": "histStuCourseID",
+     "join": "INNER"
+    }
+   ],
+   "columns": [
+    {
+     "kind": "field",
+     "alias": "Student",
+     "column": "StudentCode",
+     "heading": "Student ID",
+     "formats": [],
+     "parts": []
+    },
+    {
+     "kind": "custom",
+     "alias": "",
+     "column": "",
+     "heading": "Student",
+     "formats": [],
+     "parts": [
+      {
+       "kind": "field",
+       "alias": "Student",
+       "column": "LastName",
+       "value": "",
+       "formats": []
+      },
+      {
+       "kind": "text",
+       "alias": "",
+       "column": "",
+       "value": ", ",
+       "formats": []
+      },
+      {
+       "kind": "field",
+       "alias": "Student",
+       "column": "FirstName",
+       "value": "",
+       "formats": []
+      }
+     ]
+    },
+    {
+     "kind": "field",
+     "alias": "historyStudentSessions",
+     "column": "Descr",
+     "heading": "Session",
+     "formats": [],
+     "parts": []
+    },
+    {
+     "kind": "field",
+     "alias": "historyStudentSessions",
+     "column": "GradeLevel",
+     "heading": "Grade Level",
+     "formats": [],
+     "parts": []
+    },
+    {
+     "kind": "field",
+     "alias": "historyStudentCourses",
+     "column": "CourseCode_Local",
+     "heading": "Course Code",
+     "formats": [],
+     "parts": []
+    },
+    {
+     "kind": "field",
+     "alias": "historyStudentCourses",
+     "column": "LongName_Local",
+     "heading": "Course Name",
+     "formats": [],
+     "parts": []
+    },
+    {
+     "kind": "field",
+     "alias": "historyStudentCourseGrades",
+     "column": "ReportingDescription",
+     "heading": "Grading Period",
+     "formats": [],
+     "parts": []
+    },
+    {
+     "kind": "field",
+     "alias": "historyStudentCourseGrades",
+     "column": "GradeNumeric",
+     "heading": "Grade",
+     "formats": [],
+     "parts": []
+    },
+    {
+     "kind": "field",
+     "alias": "historyStudentCourseGrades",
+     "column": "CreditHoursEarned",
+     "heading": "Credits Earned",
+     "formats": [],
+     "parts": []
+    }
+   ],
+   "filters": [
+    {
+     "match": "ALL",
+     "conditions": [
+      {
+       "alias": "historyStudentCourseGrades",
+       "column": "IsFinalGrade",
+       "op": "eq",
+       "value": "1",
+       "value2": ""
+      }
+     ]
+    }
+   ],
+   "filter_mode": "ALL",
+   "sort": [
+    {
+     "heading": "Student",
+     "desc": false
+    },
+    {
+     "heading": "Session",
+     "desc": false
+    },
+    {
+     "heading": "Course Code",
+     "desc": false
+    }
+   ],
+   "distinct": false,
+   "top": 0,
+   "sql_override": "",
+   "created": "",
+   "modified": "",
+   "category": "Grades",
+   "format": "sam-adhoc-query",
+   "format_version": 1
+  }
+ ]
+}
