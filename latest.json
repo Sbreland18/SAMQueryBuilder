@@ -1,10 +1,10 @@
 {
   "app_name": "SAM Ad Hoc Query Builder",
-  "version": "1.0.0",
-  "released": "2026-10-15",
-  "notes": "Initial release of SAM Ad Hoc Query Builder.",
-  "installer_url": "https://github.com/Sbreland18/SAMQueryBuilder/releases/download/v1.0.0/SAM_AdHoc_Query_Builder_Setup_1.0.0.exe",
-  "installer_sha256": "",
+  "version": "1.0.5",
+  "released": "2026-10-16",
+  "notes": "Added additional vendors to the export templates.\n\nBuilt to the vendor\u2019s published layout:\nDRC BEACON: matches DRC\u2019s roster import layout exactly:\nThe seven columns, in order: State Student ID (MSIS), student last and first name, teacher first and last name, Teacher Email, Roster Name.\nCommas are removed, since BEACON doesn\u2019t allow them, and roster names are kept to 50 characters.\nThere are two versions, both for grades 2\u20138: class rosters for core courses, and homeroom rosters, which suit elementary schools better.\nTeacher Email must match each teacher\u2019s DRC user name. The student and user upload layouts aren\u2019t public, and in Mississippi students are loaded from MSIS anyway.\nThe core-course filter assumes your Course \u201ccore\u201d flag is stored as 1 or Y; check that in SAM.\nNAEP: the student list (E-File) columns from NCES\u2019s instructions, for grades 4, 8 and 12:\nSex, race/ethnicity and lunch status use your SAM codes; NAEP lets you match them to its categories when you upload.\nThe disabilities column is \u201cYes, IEP\u201d or \u201cNo, not SD\u201d.\nSAM has no general English learner field, so that column is left blank for you to fill in.\nSave the file as .xlsx for MyNAEP, and check the column order against this year\u2019s template there.\nParchment: has Parchment\u2019s required fields (name, date of birth, student ID, graduation year) plus email and mailing address. Parchment matches columns when you upload. There are two files: grades 9\u201312, and graduates from roughly the last 13 months.\n\nBuilt from what the product does (confirm the columns with each vendor):\nSEAS: the full IEP-system feed (students with special education status and guardian, class schedules, staff).\nUniteGPS: students with home address, transportation fields and guardian contact, plus a school list.\nLevel All: grades 6\u201312 with MSIS ID, email, graduation year and counselor, plus faculty. If you already connect Level All through Clever or ClassLink, you don\u2019t need this package.\nCanopy Anywhere: grades 6\u201312 with student email, counselor and parent contact, plus counselors.\nThe program is optional for families, so use the Schools: button to limit it to participating schools.\nYellowFolder: all students, including withdrawn and graduated ones, plus all employees with hire and termination dates.\nGlimpse K12: students with demographics, staff, and class enrollments.\nSummit K12: Summit rosters through OneRoster, so this is the full OneRoster 1.1 file set, zipped with the manifest.",
+  "installer_url": "https://github.com/Sbreland18/SAMQueryBuilder/releases/download/v1.0.5/SAM_AdHoc_Query_Builder_Setup_1.0.5.exe",
+  "installer_sha256": "9670b2fa46ad2785255da284669d5bb5597f5d73465b84e115b5f2a4842e83d3",
   "mandatory": false,
   "data": {
     "version": "2026.10.15.1",
@@ -20,7 +20,7 @@
       },
       "exports.json": {
         "url": "https://raw.githubusercontent.com/Sbreland18/SAMQueryBuilder/main/data/exports.json",
-        "sha256": "a75d70f00c3be00885ec514b0bede7ccd383fec6593854cbb4ab172948498b2a"
+        "sha256": "aa6a471952893b99dba984ccffc3696a505143c111cbde6bda940cd0198722a2"
       },
       "assistant_vocab.json": {
         "url": "https://raw.githubusercontent.com/Sbreland18/SAMQueryBuilder/main/data/assistant_vocab.json",
