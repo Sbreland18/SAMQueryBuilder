@@ -1,10 +1,10 @@
 {
   "app_name": "SAM Ad Hoc Query Builder",
-  "version": "1.0.0",
-  "released": "2026-10-15",
-  "notes": "Initial release of SAM Ad Hoc Query Builder.",
-  "installer_url": "https://github.com/Sbreland18/SAMQueryBuilder/releases/download/v1.0.0/SAM_AdHoc_Query_Builder_Setup_1.0.0.exe",
-  "installer_sha256": "",
+  "version": "1.0.1",
+  "released": "2026-10-16",
+  "notes": "",
+  "installer_url": "https://github.com/Sbreland18/SAMQueryBuilder/releases/download/v1.0.1/SAM_AdHoc_Query_Builder_Setup_1.0.1.exe",
+  "installer_sha256": "006cb7359f2430161f405c1dfb30b384a43f3aecad27f6512d522f1101994044",
   "mandatory": false,
   "data": {
     "version": "2026.10.15.1",
