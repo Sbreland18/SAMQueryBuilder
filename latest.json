@@ -1,10 +1,10 @@
 {
   "app_name": "SAM Ad Hoc Query Builder",
-  "version": "1.0.0",
-  "released": "2026-10-15",
-  "notes": "Initial release of SAM Ad Hoc Query Builder.",
-  "installer_url": "https://github.com/Sbreland18/SAMQueryBuilder/releases/download/v1.0.0/SAM_AdHoc_Query_Builder_Setup_1.0.0.exe",
-  "installer_sha256": "",
+  "version": "1.0.2",
+  "released": "2026-10-16",
+  "notes": "The SAM Codes & Schools window now has copy-ready queries that pull everything from SAM.\n\nOne query for everything (fastest): a new bar at the top of the window has Copy the all-in-one query.\n\nPaste it into SAM under Ad Hoc Query > Query and click Run Query.\nSave the results as sam_all_codes.csv.\nClick Import CSV files and choose that file.\n\nThat fills in all 10 lists in one go: schools with their SchoolID, school code and short name, plus grade levels, enrollment status, gender, race, owner types, contact relationships, phone types, roster status and attendance codes. The owner-type and enrolled-student codes in District Settings then fill in automatically.\n\nOne query per list (backup): each list in the window now has its own row of buttons:\n\nCopy query\nShow query, which displays the SQL\nImport this list\nThe row also shows the file name to save the results as.\n\nThese are there in case your SAM is missing one of the code tables and the all-in-one query errors.\n\nAlso added:\n\nSave all queries to a folder: writes the all-in-one query, the 10 separate queries and a READ ME that lists the file names.\nLoad from SAM: if the read-only SAM connection is turned on, this fills the lists directly with no copying or CSV files.\nThe setup wizard\u2019s codes step now uses the all-in-one query too.",
+  "installer_url": "https://github.com/Sbreland18/SAMQueryBuilder/releases/download/v1.0.2/SAM_AdHoc_Query_Builder_Setup_1.0.2.exe",
+  "installer_sha256": "c659560082f9e72e0463cdbdce162f5305444d7d39c5a415e595b53bf31489be",
   "mandatory": false,
   "data": {
     "version": "2026.10.15.1",
