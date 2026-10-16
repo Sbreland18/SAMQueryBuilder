@@ -1,0 +1,563 @@
+{
+  "_readme": "Hand-maintained additions to the SAMS table export. Edit this file, then run tools/build_catalog.py (or use the Build GUI 'Rebuild Catalog' button) to regenerate data/catalog.json. Descriptions, friendly names, categories and links here override anything inferred automatically.",
+  "hidden_patterns": [
+    "^aa_",
+    "^aaaa_",
+    "_bk$",
+    "_Audit$",
+    "_audit$",
+    "_bak",
+    "_Log$",
+    "_log$",
+    "^OLDGB_",
+    "\\d{5,}$",
+    "_T\\d+$",
+    "_History$",
+    "_Preview$"
+  ],
+  "category_rules": [
+    [
+      "^(Student|stu|Stu)",
+      "Students"
+    ],
+    [
+      "^(StudentContact|ContactInfo|Address|AddressRelationship|PhoneNumber|PhoneRelationship|EmployeeContact)$",
+      "Contacts, Addresses & Phones"
+    ],
+    [
+      "^(Employee|emp)",
+      "Employees / Staff"
+    ],
+    [
+      "^(Schedule|Course|BellSchedule|BreakSchedule|SchedulePool|AutoSchedule|InstructionalTime)",
+      "Scheduling & Courses"
+    ],
+    [
+      "^(School|AcademicSessions|DistrictDef|SchoolDef)",
+      "Schools & District"
+    ],
+    [
+      "^(Attendance|DetAttendance|TeacherDailyAttendance|historyAttendance)",
+      "Attendance"
+    ],
+    [
+      "^(GR_|Gradebook|stuTermGrade|stuCourseGrade|ReportingPeriod|stuGrade|TeacherGradebook)",
+      "Grades & Gradebook"
+    ],
+    [
+      "^(history|History)",
+      "History / Transcripts"
+    ],
+    [
+      "^(Disc|disc)",
+      "Discipline"
+    ],
+    [
+      "^(SPED|Sped|sped)",
+      "Special Education"
+    ],
+    [
+      "^(Med|med|Health|Immun)",
+      "Health"
+    ],
+    [
+      "^(Std|std|StandardizedTest|Test)",
+      "Standardized Tests"
+    ],
+    [
+      "^(lookup|Lookup|LookUp|lookUp)",
+      "Lookup (code) tables"
+    ],
+    [
+      "^(AdHocQuery|RB_|Report)",
+      "Ad Hoc / Report Builder"
+    ],
+    [
+      "^(Incident|Referral)",
+      "Discipline"
+    ],
+    [
+      "^(stand|Stand|CC_Standards)",
+      "Standardized Tests"
+    ],
+    [
+      "^(Grade|ConductGrades|PerformanceGrades|ClassRank|HonorRoll|HRRules|HRScripts|HRCalculation|HRCustomRules|QualityPoints|EarlyCompleterGrades|MyGrad|TeacherTermScore)",
+      "Grades & Gradebook"
+    ],
+    [
+      "^(Framework|StateCourse|LocalToStateCarnegie|DC_Courses|schDepartment|SubstituteTeacher|NextYearSchedule|BellSch|wrkTermOverlap)",
+      "Scheduling & Courses"
+    ],
+    [
+      "^(Lesson|Competenc|Objective|ContentStrands|InstructionalObjectives|PerfObj|TeacherHomework|iCAP|DiplomaPathway|DistrictDiplomaPathway)",
+      "Lessons, Standards & Pathways"
+    ],
+    [
+      "^(Fee|PaymentPlan)",
+      "Fees"
+    ],
+    [
+      "^(Locker|Parking|BusInfo|Vehicle|DriverLicense|CheckInOut|Photos|PhysicianInfo|Immigrant|MigrantRelated|SpecialEducation|EmailAddress|Device|Activities|AthleticsElig|SummerTransfers|Institutions|Counties|LetterLog|CorrespondenceLog)",
+      "Student Services & Misc."
+    ],
+    [
+      "^(EOY|EndOfYear)",
+      "End of Year"
+    ],
+    [
+      "^(AP_|AS_|AIM_|AL_|aewol_|API|cas|CAS|CA_|CAUsers|CF_|DM_|EWS_|LP_|InfoSnap|MI_|PO|UserDef|User|Audit|Group|FieldSecurity|SIF_|Help|News|news|Import|import_|Scan|MLDS|MSIS|TFA|VR_|WS_|PS_|SAM_|C2C|DDI|Izenda|Jasper|tbl|LB_|GUID|IPAudit|PasswordReset|Application|ClientApplications|Category|ScriptMaster|ProcessQueue|dbVersion|ca_|tmp_|SentEmails|EmailTemplate|UISection|SectionMenu|StateRep|SeasErrors|ExceptionReference|ReferenceNote|CustomLetters|CriteriaOption|FilterGroup|ImportTable|AllowedTimes|AnnualArchive|WordList|OwnerType|RegistrationCodes|SessionReport|AT_|CEIS|MIDAS|Staff_upload|HelpMain)",
+      "System / Modules"
+    ]
+  ],
+  "common_tables": [
+    "Student",
+    "stuSchool",
+    "stuHRTeacher",
+    "Employee",
+    "empSchool",
+    "SchoolDef",
+    "Schedule",
+    "ScheduleRoster",
+    "ScheduleFramework",
+    "ScheduleCourseTerm",
+    "ScheduleCourse",
+    "Course",
+    "StudentContact",
+    "ContactInfo",
+    "AddressRelationship",
+    "Address",
+    "PhoneRelationship",
+    "PhoneNumber",
+    "AttendanceDaily",
+    "AttendanceCodes",
+    "lookupADAGrade",
+    "lookupGenderCode",
+    "lookupRaceCode",
+    "lookupEnrollmentStatus",
+    "AcademicSessions",
+    "ReportingPeriod",
+    "stuTermGrade",
+    "historyStudentSessions",
+    "historyStudentCourses",
+    "historyStudentCourseGrades"
+  ],
+  "tables": {
+    "Student": {
+      "friendly": "Students",
+      "description": "One row per student: names, IDs, birth date, gender, race, grade (ADAGrade), enrollment status, GPA and many program flags. Start most student queries here."
+    },
+    "stuSchool": {
+      "friendly": "Student School Enrollment",
+      "description": "Which school(s) each student is enrolled in. Link Student.StudentID -> stuSchool.StudentID, then stuSchool.SchoolID -> SchoolDef.SchoolID."
+    },
+    "stuHRTeacher": {
+      "friendly": "Student Homeroom / Counselor",
+      "description": "Homeroom teacher, homeroom room and counselor for each student per schedule. HRTeacherID and CounselorID point to Employee.EmployeeID."
+    },
+    "Employee": {
+      "friendly": "Employees / Staff",
+      "description": "One row per employee: names, employee number, hire information, faculty flag."
+    },
+    "empSchool": {
+      "friendly": "Employee School Assignment",
+      "description": "Which school(s) each employee is assigned to."
+    },
+    "SchoolDef": {
+      "friendly": "Schools",
+      "description": "One row per school: school code, school name, type, principal."
+    },
+    "DistrictDef": {
+      "friendly": "District",
+      "description": "District information: district code, name, NCES code."
+    },
+    "Schedule": {
+      "friendly": "Schedules (per school/year)",
+      "description": "Master schedules for each school and session. LiveFlag marks the live schedule."
+    },
+    "ScheduleRoster": {
+      "friendly": "Schedule Roster (student in a class)",
+      "description": "One row per student per class section. Students are linked to classes through this table (Student -> ScheduleRoster -> ScheduleFramework)."
+    },
+    "ScheduleFramework": {
+      "friendly": "Course Sections (Class Periods)",
+      "description": "A section of a course: teacher, section number, room, period."
+    },
+    "ScheduleCourseTerm": {
+      "friendly": "Scheduled Course Terms",
+      "description": "Links a scheduled course to its term (AY, S1, T1...)."
+    },
+    "ScheduleCourse": {
+      "friendly": "Scheduled Courses",
+      "description": "Courses offered in a specific schedule; links to Course and Schedule."
+    },
+    "Course": {
+      "friendly": "Course Catalog",
+      "description": "District course catalog: course code, state course ID, names, credit hours."
+    },
+    "StudentContact": {
+      "friendly": "Student Contacts (parents/guardians)",
+      "description": "Links students to their contacts with relationship, sequence, primary/emergency flags."
+    },
+    "ContactInfo": {
+      "friendly": "Contact People",
+      "description": "Parent/guardian/contact names and details."
+    },
+    "AddressRelationship": {
+      "friendly": "Address Links",
+      "description": "Links an address to an owner (student, contact or employee). OwnerType tells which kind of owner; filter on it when joining."
+    },
+    "Address": {
+      "friendly": "Addresses",
+      "description": "Street address, city, state, ZIP, county."
+    },
+    "PhoneRelationship": {
+      "friendly": "Phone Links",
+      "description": "Links a phone number to an owner (student, contact or employee). OwnerType tells which kind of owner."
+    },
+    "PhoneNumber": {
+      "friendly": "Phone Numbers",
+      "description": "Area code, phone number, extension and phone type."
+    },
+    "AttendanceDaily": {
+      "friendly": "Daily Attendance",
+      "description": "One row per student per school per date with an attendance code."
+    },
+    "AttendancePeriod": {
+      "friendly": "Period Attendance",
+      "description": "Attendance per class period (ScheduleFrameworkID) per date."
+    },
+    "AttendanceCodes": {
+      "friendly": "Attendance Codes",
+      "description": "Definitions of the attendance codes used in daily/period attendance."
+    },
+    "AcademicSessions": {
+      "friendly": "Academic Sessions (School Years)",
+      "description": "School year/session per school with start and end dates."
+    },
+    "ReportingPeriod": {
+      "friendly": "Reporting Periods (Grading Periods)",
+      "description": "Grading/reporting periods for each schedule."
+    },
+    "stuTermGrade": {
+      "friendly": "Student Term Grades",
+      "description": "Term averages per gradebook per reporting period."
+    },
+    "historyStudentSessions": {
+      "friendly": "Transcript Sessions",
+      "description": "One row per student per historical school year on the transcript."
+    },
+    "historyStudentCourses": {
+      "friendly": "Transcript Courses",
+      "description": "Courses on the student's transcript."
+    },
+    "historyStudentCourseGrades": {
+      "friendly": "Transcript Course Grades",
+      "description": "Grades, credits and quality points for transcript courses."
+    },
+    "lookupADAGrade": {
+      "friendly": "Grade Level Codes",
+      "description": "Grade level code descriptions (Val = code stored on the student)."
+    },
+    "lookupGenderCode": {
+      "friendly": "Gender Codes",
+      "description": "Gender code descriptions."
+    },
+    "lookupRaceCode": {
+      "friendly": "Race Codes",
+      "description": "Race code descriptions."
+    },
+    "lookupEnrollmentStatus": {
+      "friendly": "Enrollment Status Codes",
+      "description": "Enrollment status code descriptions."
+    },
+    "AdHocQuery": {
+      "friendly": "Saved Ad Hoc Queries",
+      "description": "Queries saved in SAM's Ad Hoc Query module."
+    }
+  },
+  "columns": {
+    "Student.StudentID": "Internal student key used to link to other tables (not the number printed on reports).",
+    "Student.StudentCode": "Local student number / ID shown in SAM.",
+    "Student.StateCode": "State (MSIS) student ID. Report Builder often removes leading zeros from this.",
+    "Student.ADAGrade": "Current grade level code used for ADA (e.g. KG, 01..12).",
+    "Student.EnrollmentStatus": "Current enrollment status code.",
+    "Student.GenderCode": "Gender code (see Gender Codes lookup).",
+    "Student.RaceCode": "Race code (see Race Codes lookup).",
+    "Student.DOB": "Date of birth.",
+    "Student.SSN": "Protected: Social Security Number. Only include when absolutely required.",
+    "Employee.SSN": "Protected: Social Security Number. Only include when absolutely required.",
+    "ScheduleFramework.Period": "Class period.",
+    "ScheduleFramework.TeacherID": "Teacher for the section (Employee.EmployeeID).",
+    "ScheduleRoster.Status": "Roster status (active/dropped/withdrawn). See LookupRosterStatus.",
+    "Schedule.LiveFlag": "1 = the live (current) schedule.",
+    "AddressRelationship.OwnerType": "Type of owner this address belongs to (student, contact, employee). Filter on this when linking.",
+    "PhoneRelationship.OwnerType": "Type of owner this phone belongs to (student, contact, employee). Filter on this when linking.",
+    "stuHRTeacher.HRTeacherID": "Homeroom teacher (Employee.EmployeeID).",
+    "stuHRTeacher.CounselorID": "Counselor (Employee.EmployeeID)."
+  },
+  "sensitive_columns": [
+    "SSN",
+    "TeacherSSN",
+    "Password",
+    "DOB"
+  ],
+  "relationships": [
+    {
+      "from": "stuHRTeacher.HRTeacherID",
+      "to": "Employee.EmployeeID",
+      "label": "Student Homeroom Teacher to Employee",
+      "weight": 1
+    },
+    {
+      "from": "stuHRTeacher.CounselorID",
+      "to": "Employee.EmployeeID",
+      "label": "Student Counselor to Employee",
+      "weight": 2
+    },
+    {
+      "from": "ScheduleFramework.TeacherID",
+      "to": "Employee.EmployeeID",
+      "label": "Section Teacher to Employee",
+      "weight": 1
+    },
+    {
+      "from": "ScheduleTeacher.TeacherID",
+      "to": "Employee.EmployeeID",
+      "label": "Schedule Teacher to Employee",
+      "weight": 3
+    },
+    {
+      "from": "historyStudentCourses.TeacherID",
+      "to": "Employee.EmployeeID",
+      "label": "Transcript Teacher to Employee",
+      "weight": 3
+    },
+    {
+      "from": "Student.AdvisorID",
+      "to": "Employee.EmployeeID",
+      "label": "Student Advisor to Employee",
+      "weight": 4
+    },
+    {
+      "from": "SchoolDef.SchoolPrincipalID",
+      "to": "Employee.EmployeeID",
+      "label": "School Principal to Employee",
+      "weight": 6
+    },
+    {
+      "from": "Student.ADAGrade",
+      "to": "lookupADAGrade.Val",
+      "label": "Grade code description",
+      "weight": 5,
+      "lookup": true
+    },
+    {
+      "from": "Student.GenderCode",
+      "to": "lookupGenderCode.Val",
+      "label": "Gender code description",
+      "weight": 5,
+      "lookup": true
+    },
+    {
+      "from": "Student.RaceCode",
+      "to": "lookupRaceCode.Val",
+      "label": "Race code description",
+      "weight": 5,
+      "lookup": true
+    },
+    {
+      "from": "Student.EnrollmentStatus",
+      "to": "lookupEnrollmentStatus.Val",
+      "label": "Enrollment status description",
+      "weight": 5,
+      "lookup": true
+    },
+    {
+      "from": "ScheduleRoster.Status",
+      "to": "LookupRosterStatus.Val",
+      "label": "Roster status description",
+      "weight": 5,
+      "lookup": true
+    },
+    {
+      "from": "AttendanceDaily.AttendanceCode",
+      "to": "AttendanceCodes.AttendanceCode",
+      "label": "Attendance code definition",
+      "weight": 2
+    },
+    {
+      "from": "AttendancePeriod.AttendanceCode",
+      "to": "AttendanceCodes.AttendanceCode",
+      "label": "Attendance code definition",
+      "weight": 2
+    },
+    {
+      "from": "AddressRelationship.OwnerID",
+      "to": "Student.StudentID",
+      "label": "Address owned by Student (filter OwnerType)",
+      "weight": 4
+    },
+    {
+      "from": "AddressRelationship.OwnerID",
+      "to": "ContactInfo.ContactID",
+      "label": "Address owned by Contact (filter OwnerType)",
+      "weight": 4
+    },
+    {
+      "from": "PhoneRelationship.OwnerID",
+      "to": "Student.StudentID",
+      "label": "Phone owned by Student (filter OwnerType)",
+      "weight": 4
+    },
+    {
+      "from": "PhoneRelationship.OwnerID",
+      "to": "ContactInfo.ContactID",
+      "label": "Phone owned by Contact (filter OwnerType)",
+      "weight": 4
+    },
+    {
+      "from": "ScheduleRoster.StudentID",
+      "to": "Student.StudentID",
+      "label": "Student and Schedule Roster",
+      "weight": 1
+    },
+    {
+      "from": "ScheduleRoster.ScheduleFrameworkID",
+      "to": "ScheduleFramework.ScheduleFrameworkID",
+      "label": "Schedule Roster and Course/Section",
+      "weight": 1
+    },
+    {
+      "from": "stuSchool.StudentID",
+      "to": "Student.StudentID",
+      "label": "Student and Student School",
+      "weight": 1
+    },
+    {
+      "from": "stuSchool.SchoolID",
+      "to": "SchoolDef.SchoolID",
+      "label": "Student School and School",
+      "weight": 1
+    },
+    {
+      "from": "empSchool.EmployeeID",
+      "to": "Employee.EmployeeID",
+      "label": "Employee and Employee School",
+      "weight": 1
+    },
+    {
+      "from": "empSchool.SchoolID",
+      "to": "SchoolDef.SchoolID",
+      "label": "Employee School and School",
+      "weight": 1
+    },
+    {
+      "from": "ScheduleFramework.ScheduleCourseTermID",
+      "to": "ScheduleCourseTerm.ScheduleCourseTermID",
+      "label": "Course/Section and Course Term",
+      "weight": 1
+    },
+    {
+      "from": "ScheduleCourseTerm.ScheduleCourseID",
+      "to": "ScheduleCourse.ScheduleCourseID",
+      "label": "Course Term and Scheduled Course",
+      "weight": 1
+    },
+    {
+      "from": "ScheduleCourse.CourseID",
+      "to": "Course.CourseID",
+      "label": "Scheduled Course and Course Catalog",
+      "weight": 1
+    },
+    {
+      "from": "ScheduleCourse.ScheduleID",
+      "to": "Schedule.ScheduleID",
+      "label": "Scheduled Course and Schedule",
+      "weight": 1
+    },
+    {
+      "from": "Schedule.SchoolID",
+      "to": "SchoolDef.SchoolID",
+      "label": "Schedule and School",
+      "weight": 1
+    },
+    {
+      "from": "Schedule.SessionID",
+      "to": "AcademicSessions.SessionID",
+      "label": "Schedule and Academic Session",
+      "weight": 2
+    },
+    {
+      "from": "StudentContact.StudentID",
+      "to": "Student.StudentID",
+      "label": "Student and Student Contact",
+      "weight": 1
+    },
+    {
+      "from": "StudentContact.ContactID",
+      "to": "ContactInfo.ContactID",
+      "label": "Student Contact and Contact",
+      "weight": 1
+    },
+    {
+      "from": "stuHRTeacher.StudentID",
+      "to": "Student.StudentID",
+      "label": "Student and Homeroom",
+      "weight": 1
+    },
+    {
+      "from": "AttendanceDaily.StudentID",
+      "to": "Student.StudentID",
+      "label": "Student and Daily Attendance",
+      "weight": 1
+    },
+    {
+      "from": "AttendanceDaily.SchoolID",
+      "to": "SchoolDef.SchoolID",
+      "label": "Daily Attendance and School",
+      "weight": 3
+    },
+    {
+      "from": "AddressRelationship.AddressID",
+      "to": "Address.AddressID",
+      "label": "Address Link and Address",
+      "weight": 1
+    },
+    {
+      "from": "PhoneRelationship.PhoneNumberID",
+      "to": "PhoneNumber.PhoneNumberID",
+      "label": "Phone Link and Phone Number",
+      "weight": 1
+    },
+    {
+      "from": "historyStudentSessions.StudentID",
+      "to": "Student.StudentID",
+      "label": "Student and Transcript Sessions",
+      "weight": 2
+    },
+    {
+      "from": "historyStudentCourses.HistSessionID",
+      "to": "historyStudentSessions.HistSessionID",
+      "label": "Transcript Session and Courses",
+      "weight": 1
+    },
+    {
+      "from": "historyStudentCourseGrades.histStuCourseID",
+      "to": "historyStudentCourses.HistStuCourseID",
+      "label": "Transcript Course and Grades",
+      "weight": 1
+    },
+    {
+      "from": "stuCoursesTaken.StudentID",
+      "to": "Student.StudentID",
+      "label": "Student and Courses Taken",
+      "weight": 5
+    },
+    {
+      "from": "stuCoursesTaken.CourseID",
+      "to": "Course.CourseID",
+      "label": "Courses Taken and Course",
+      "weight": 5
+    }
+  ]
+}
