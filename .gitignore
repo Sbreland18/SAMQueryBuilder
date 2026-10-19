@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+build/
+dist/
+.pytest_cache/
+tools/build_settings.json
+*.spec
+
+# your own notes - never pushed to GitHub or put in the installer
+private/
