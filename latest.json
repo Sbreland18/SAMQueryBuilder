@@ -1,10 +1,10 @@
 {
   "app_name": "SAM Ad Hoc Query Builder",
-  "version": "1.0.0",
-  "released": "2026-10-15",
-  "notes": "Initial release of SAM Ad Hoc Query Builder.",
-  "installer_url": "https://github.com/Sbreland18/SAMQueryBuilder/releases/download/v1.0.0/SAM_AdHoc_Query_Builder_Setup_1.0.0.exe",
-  "installer_sha256": "",
+  "version": "1.0.6",
+  "released": "2026-10-19",
+  "notes": "Fixed the following bugs:\nMost serious (data safety and security)\n\nRead-only SAM connection: the guard that stops anything except SELECT queries could be tricked with quote marks or comments into running a second command, such as a DELETE. It\u2019s rewritten and now refuses those, plus linked-server names.\nCount rows in SAM: this failed on every query that had a sort order (113 of 194 export files). Fixed.\nTeam folder: one PC saving its settings could overwrite a teammate\u2019s newer changes, and joining an existing team folder could replace the team\u2019s settings with this PC\u2019s blank ones. Both fixed.\nSettings file: it\u2019s now written safely with a backup copy. If it\u2019s ever damaged, the app falls back to the last good copy instead of silently starting empty.\nData updates: publishing could leave every PC unable to download data updates, because files merged in from GitHub no longer matched the published file fingerprints. The publish order is fixed and the fingerprints are re-checked before pushing.\nSafety net: if a file that was sent last night went missing, it didn\u2019t stop the upload. It now holds the upload.\nSchool limit: when a query\u2019s filter groups were combined with \u201cany group may match\u201d, the school limit didn\u2019t apply, so other schools\u2019 rows could reach the vendor. Fixed.\nBackup files: a tampered backup could write files outside the app\u2019s folders. Fixed.\n\nThings that silently stopped working\n\nRenaming: renaming an upload profile or report email broke its nightly task. Renaming a district hid its saved queries. All three now carry over.\nChanging districts or schedules:\nAdding a second district left duplicate scheduled tasks running.\nBackups and data-quality snapshots had no way to remove their scheduled task; there\u2019s now a Remove schedule button for each.\nSwitching districts kept the admin PIN unlocked, and the setup wizard could get around the PIN.\nFilters: opening Step 4 erased any \u201cAsk\u201d prompts on filters.\nUnsaved edits: a dialog left open could save an old copy of the settings over District Settings changes. Edits in Upload setup, Report emails and the privacy register were lost when you switched rows or closed the window.\nImport existing SQL: several patterns changed what the query returns, including NOT LIKE, LEFT JOINs written in a certain order, CASE and CAST, GROUP BY and TOP PERCENT. They now import correctly or are kept exactly as written.\n\nSmaller fixes\n\nSQL and imports:\nSome generated SQL wouldn\u2019t run on SQL Server: totals with a text-only column (two SAM setup check queries), blank column headings, and a column named Precision.\nThe codes import crashed on an unquoted comma.\nApp and Build GUI:\nThe Build GUI froze or crashed when a tool path was wrong.\nA failed build no longer bumps the version number.\nStartup crashes are now logged and shown on screen instead of closing silently.\nThe installer now removes old program files on upgrade.\nExports and attachments:\nExcel attachments failed on odd characters in SAM notes.\nLarge shared community queries produced a broken link.\nA dry run filled the archive folder, and the archive is now pruned.\n\nOne behavior change: View \u2192 Text size now applies after a restart, like the theme does. Changing it live could crash the app.",
+  "installer_url": "https://github.com/Sbreland18/SAMQueryBuilder/releases/download/v1.0.6/SAM_AdHoc_Query_Builder_Setup_1.0.6.exe",
+  "installer_sha256": "d85e5dd1bfc3539ddc897c4e264377a02c5fab468c3585cdffc99360afe83c1a",
   "mandatory": false,
   "data": {
     "version": "2026.10.15.1",
@@ -20,7 +20,7 @@
       },
       "exports.json": {
         "url": "https://raw.githubusercontent.com/Sbreland18/SAMQueryBuilder/main/data/exports.json",
-        "sha256": "a75d70f00c3be00885ec514b0bede7ccd383fec6593854cbb4ab172948498b2a"
+        "sha256": "aa6a471952893b99dba984ccffc3696a505143c111cbde6bda940cd0198722a2"
       },
       "assistant_vocab.json": {
         "url": "https://raw.githubusercontent.com/Sbreland18/SAMQueryBuilder/main/data/assistant_vocab.json",
